@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Redirect logic
+        function redirectToStore() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                // Android users
+                window.location.href = "https://play.google.com/store/apps/details?id=com.albatross.raff.store";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS users
+                window.location.href = "https://apps.apple.com/jo/app/raff-app/id6504626979";
+            } else {
+                // Fallback for unsupported platforms
+                window.location.href = "https://raffapps.com";
+            }
+        }
+
+        // Trigger redirect
+        window.onload = redirectToStore;
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
